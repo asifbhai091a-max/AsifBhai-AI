@@ -9,10 +9,10 @@ def home():
 
 @app.route("/health")
 def health():
-return jsonify({
-"status": "ok",
-"app": "AsifBhai AI"
-})
+    return jsonify({
+        "status": "ok",
+        "app": "AsifBhai AI"
+    })
 
 @app.route("/chat", methods=["POST"])
 def chat():
