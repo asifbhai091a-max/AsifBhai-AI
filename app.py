@@ -1,11 +1,12 @@
 from flask import Flask, request, jsonify
 import os
 
-app = Flask(name)
+app = Flask(__name__)
 
 @app.route("/")
 def home():
     return "AsifBhai AI backend is running!"
+
 @app.route("/health")
 def health():
     return jsonify({
@@ -15,18 +16,18 @@ def health():
 
 @app.route("/chat", methods=["POST"])
 def chat():
-data = request.get_json(silent=True) or {}
-message = data.get("message", "").strip()
+    data = request.get_json(silent=True) or {}
+    message = data.get("message", "").strip()
 
-if not message:
-    return jsonify({"error": "Message is required"}), 400
+    if not message:
+        return jsonify({"error": "Message is required"}), 400
 
-return jsonify({
-    "reply": "Bhai, tumhara message mil gaya: " + message
-})
+    return jsonify({
+        "reply": "Bhai, tumhara message mil gaya: " + message
+    })
 
-if name == "main":
-app.run(
-host="0.0.0.0",
-port=int(os.environ.get("PORT", 8080))
-)
+if __name__ == "__main__":
+    app.run(
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 8080))
+    )
