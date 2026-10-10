@@ -5,8 +5,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "AsifBhai AI backend 
-    is running!"    
+    return "AsifBhai AI backend is running!"
+
 @app.route("/health")
 def health():
     return jsonify({
