@@ -1,4 +1,3 @@
-
 from flask import Flask, request, jsonify
 import os
 
@@ -10,7 +9,10 @@ return "AsifBhai AI backend is running!"
 
 @app.route("/health")
 def health():
-return jsonify({"status": "ok", "app": "AsifBhai AI"})
+return jsonify({
+"status": "ok",
+"app": "AsifBhai AI"
+})
 
 @app.route("/chat", methods=["POST"])
 def chat():
